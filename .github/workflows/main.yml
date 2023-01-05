@@ -9,19 +9,19 @@ jobs:
   build:
   #定义名为 build 的作业。 子键将定义作业的属性 
     runs-on: ubuntu-latest 
-        steps:
+    steps:
     - uses: actions/checkout@v3
     - name: Set up Python 3.10
       uses: actions/setup-python@v3
       with:
         python-version: "3.10"
-      - name: Set timezone
-        run: |
+    - name: Set timezone
+      run: |
           cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
-      - name: install pip packages
-        run: |
+    - name: install pip packages
+      run: |
           python -m pip install --upgrade pip
           pip3 install -r requirements.txt
-      - name: weixin
-        run: |
+    - name: weixin
+      run: |
           python3 main.py
